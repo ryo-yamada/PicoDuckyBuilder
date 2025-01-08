@@ -1,7 +1,3 @@
-DELAY 250
-GUI r
-DELAY 250
-STRING notepad
+DELAY 1500
+STRING echo Hello world!
 ENTER
-DELAY 750
-STRING Hello world!

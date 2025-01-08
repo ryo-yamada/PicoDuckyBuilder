@@ -59,7 +59,7 @@ while True:
     """)
     modelSelection = input(Fore.CYAN+"SELECTION: "+Style.RESET_ALL)
 
-    if modelSelection == '1' or modelSelection == '2' or modelSelection == '3' or modelSelection == '4':
+    if modelSelection in ['1', '2', '3', '4']:
         break
     else:
         print(Fore.RED+"Invalid selection. Pick a number!")
@@ -86,7 +86,6 @@ while True:
             sleep(2)
             driveCheckPassed = True
             break
-
     if driveCheckPassed:
         break
     else:
@@ -101,14 +100,13 @@ def convertRem(a:int):
     print(Fore.CYAN+f"Converting. Please wait.\n[{str(a)}/11]"+Style.RESET_ALL)
 
 convertRem(0)
-if modelSelection == "1":
-    os.system(f"copy dependancies\process\\adafruit-circuitpython-raspberry_pi_pico-en_US-9.2.1.uf2 {selectedDriveLabel}:\ ")
-elif modelSelection == "2":
-    os.system(f"copy dependancies\process\\adafruit-circuitpython-raspberry_pi_pico_w-en_US-9.2.1.uf2 {selectedDriveLabel}:\ ")
-elif modelSelection == "3":
-    os.system(f"copy dependancies\process\\adafruit-circuitpython-raspberry_pi_pico2-en_US-9.2.1.uf2 {selectedDriveLabel}:\ ")
-elif modelSelection == "4":
-    os.system(f"copy dependancies\process\\adafruit-circuitpython-raspberry_pi_pico2_w-en_US-9.2.1.uf2 {selectedDriveLabel}:\ ")
+files_to_copy = {
+    "1": "dependancies/process/adafruit-circuitpython-raspberry_pi_pico-en_US-9.2.1.uf2",
+    "2": "dependancies/process/adafruit-circuitpython-raspberry_pi_pico_w-en_US-9.2.1.uf2",
+    "3": "dependancies/process/adafruit-circuitpython-raspberry_pi_pico2-en_US-9.2.1.uf2",
+    "4": "dependancies/process/adafruit-circuitpython-raspberry_pi_pico2_w-en_US-9.2.1.uf2",
+}
+os.system(f"copy {files_to_copy[modelSelection]} {selectedDriveLabel}\:")
 sleep(9)
 convertRem(1)
 os.system(f"copy dependancies\\final\lib\ {selectedDriveLabel}:\ ")
@@ -130,14 +128,14 @@ convertRem(9)
 os.system(f"copy dependancies\\final\duckyinpython.py {selectedDriveLabel}:\ ")
 convertRem(10)
 os.system(f"copy dependancies\\final\payload.dd {selectedDriveLabel}:\ ")
-sleep(5)
 
 # FINISH
 cls()
 print(Fore.GREEN+"Conversion finished!\n[11/11]\n"+Style.RESET_ALL)
 sleep(1)
 print(Fore.CYAN+"Additional notes:"+Style.RESET_ALL)
-print(f"1. Refer to {Fore.YELLOW}https://github.com/dbisu/pico-ducky/tree/main?tab=readme-ov-file{Style.RESET_ALL} for additional info on how to use your new PicoDucky.")
-print(f"2. Refer to {Fore.YELLOW}https://docs.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference{Style.RESET_ALL} for additional info on how to edit your payload.")
+print(f"- Refer to {Fore.YELLOW}https://github.com/dbisu/pico-ducky/tree/main?tab=readme-ov-file{Style.RESET_ALL} for additional info on how to use your new PicoDucky.")
+print(f"- Refer to {Fore.YELLOW}https://docs.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference{Style.RESET_ALL} for additional info on how to edit your payload.")
 
-print(f"\nCREDIT TO {Fore.LIGHTMAGENTA_EX}steveiliop56{Style.RESET_ALL} ON GITHUB FOR INSPIRING ME TO MAKE THIS TOOL!")
+print(f"\nCREDIT TO {Fore.LIGHTMAGENTA_EX}@dbisu{Style.RESET_ALL} ON GITHUB FOR MAINTAINING THE MAIN REPOSITORY FOR THE INSTALLATION!")
+print(f"CREDIT TO {Fore.LIGHTMAGENTA_EX}@steveiliop56{Style.RESET_ALL} ON GITHUB FOR INSPIRING ME TO MAKE THIS TOOL!")

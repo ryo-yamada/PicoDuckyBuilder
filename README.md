@@ -10,13 +10,15 @@ A tool to automate the process of converting a Raspberry Pi Pico into a USB Rubb
 1. Download the project as a zip folder.
 2. Extract the zip anywhere.
 3. Open a terminal and cd into the folder.
-4. See below.
-- Run `$ py main.py` if you acquired Python from the python.org website.  
-- Run `$ python main.py` if you acquired Python from the Microsoft Store.
+4. Run `$ py windows.py` or `python3 windows.py` or `$ python windows.py`.
 5. Follow the instructions.
 
 ### Linux:
-Not yet supported.
+1. Download the project as a zip folder.
+2. Extract the zip anywhere.
+3. Open a terminal and cd into the folder.
+4. Run `$ sudo python linux.py`. [sudo is required]
+5. Follow the instructions.
 
 ### macOS:
 Not yet supported.
