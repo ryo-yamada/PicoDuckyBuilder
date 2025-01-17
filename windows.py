@@ -45,7 +45,6 @@ print("2: You are advised to delete all the files in your Pico.")
 print("3: You are advised that you do not try to do anything malicious with the finished product, and I am not liable for any legal troubles you may face.")
 print("4: This is not a finished product, and I am not liable if your Pico somehow gets bricked, although it shouldn't happen.")
 print("5: Full wireless support for the Pico W and Pico 2W are not yet available, but they should still function as if they were a Pico or Pico 2")
-print("6: This tool does not yet work on Linux or macOS. Use it on a Windows machine.")
 input(Fore.CYAN+"\nPress [ENTER] to continue."+Style.RESET_ALL)
 cls()
 
@@ -101,12 +100,12 @@ def convertRem(a:int):
 
 convertRem(0)
 files_to_copy = {
-    "1": "dependancies/process/adafruit-circuitpython-raspberry_pi_pico-en_US-9.2.1.uf2",
-    "2": "dependancies/process/adafruit-circuitpython-raspberry_pi_pico_w-en_US-9.2.1.uf2",
-    "3": "dependancies/process/adafruit-circuitpython-raspberry_pi_pico2-en_US-9.2.1.uf2",
-    "4": "dependancies/process/adafruit-circuitpython-raspberry_pi_pico2_w-en_US-9.2.1.uf2",
+    "1": "dependancies\process\\adafruit-circuitpython-raspberry_pi_pico-en_US-9.2.1.uf2",
+    "2": "dependancies\process\\adafruit-circuitpython-raspberry_pi_pico_w-en_US-9.2.1.uf2",
+    "3": "dependancies\process\\adafruit-circuitpython-raspberry_pi_pico2-en_US-9.2.1.uf2",
+    "4": "dependancies\process\\adafruit-circuitpython-raspberry_pi_pico2_w-en_US-9.2.1.uf2",
 }
-os.system(f"copy {files_to_copy[modelSelection]} {selectedDriveLabel}\:")
+os.system(f"copy {files_to_copy[modelSelection]} {selectedDriveLabel}:\ ")
 sleep(9)
 convertRem(1)
 os.system(f"copy dependancies\\final\lib\ {selectedDriveLabel}:\ ")
