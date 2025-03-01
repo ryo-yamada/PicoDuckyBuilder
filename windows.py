@@ -38,7 +38,7 @@ def main():
         else:
             return None
 
-    # DISCLAIMER
+    # DISCLAIMER VVV
     print(f"{Back.LIGHTBLUE_EX}!! IMPORTANT NOTES !!{Style.RESET_ALL}")
     print("1: Before you start, you are required to plug in your Pico while holding the BOOTSEL button and rename the volume label of it to 'RPI-RP2'.")
     print("2: You are advised to delete all the files in your Pico.")
@@ -66,7 +66,7 @@ def main():
             cls()
     cls()
 
-    # DRIVE SELECTION
+    # DRIVE SELECTION 
     while True:
         print(f"{Fore.BLUE}SELECT YOUR PICO'S DRIVE LETTER:{Style.RESET_ALL}")
         selectedDriveLabel = input(f"{Fore.CYAN}SELECTION: {Style.RESET_ALL}")
