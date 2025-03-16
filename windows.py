@@ -2,7 +2,7 @@ def main():
     # MAJOR CREDIT TO @dbisu ON GITHUB FOR MAINTAINING THE MAIN REPOSITORY!
     # CREDIT TO @steveiliop56 ON GITHUB FOR INSPIRING ME TO MAKE THIS TOOL!
 
-    import os, psutil, shutil, ctypes
+    import os, psutil, shutil, ctypes, sys
     from ctypes import wintypes
     from time import sleep
     from colorama import Fore, Back, Style, just_fix_windows_console
@@ -11,6 +11,10 @@ def main():
     def cls():
         os.system('cls')
     cls()
+
+    is_admin = ctypes.windll.shell32.IsUserAnAdmin() != 0
+    if is_admin == False:
+        sys.exit("Must be running as admin.")
 
     def get_volume_label(drive_mountpoint):
         # man idk what any of this is i just copied it from somewhere
