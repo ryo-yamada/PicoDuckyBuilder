@@ -2,9 +2,8 @@ def main():
     # MAJOR CREDIT TO @dbisu ON GITHUB FOR MAINTAINING THE MAIN REPOSITORY!
     # CREDIT TO @steveiliop56 ON GITHUB FOR INSPIRING ME TO MAKE THIS TOOL!
 
-    import os, psutil, shutil, ctypes, sys
+    import os, psutil, shutil, ctypes, sys, time
     from ctypes import wintypes
-    from time import sleep
     from colorama import Fore, Back, Style, just_fix_windows_console
     just_fix_windows_console()
     os.system("title Pico Ducky Builder")
@@ -12,9 +11,11 @@ def main():
         os.system('cls')
     cls()
 
+    """
     is_admin = ctypes.windll.shell32.IsUserAnAdmin() != 0
     if is_admin == False:
         sys.exit("Must be running as admin.")
+    """
 
     def get_volume_label(drive_mountpoint):
         # man idk what any of this is i just copied it from somewhere
@@ -66,7 +67,7 @@ def main():
             break
         else:
             print(f"{Fore.RED}Invalid selection. Pick a number!")
-            sleep(2)
+            time.sleep(2)
             cls()
     cls()
 
@@ -77,7 +78,7 @@ def main():
 
         if len(selectedDriveLabel) > 1:
             print(f"{Fore.RED}Invalid selection. You must select the drive LETTER that is assigned to your Pico, not the name!{Style.RESET_ALL}")
-            sleep(4)
+            time.sleep(4)
             cls()
             continue
 
@@ -86,7 +87,7 @@ def main():
             cls()
             if part.device and selectedDriveLabel in part.device and get_volume_label(part.mountpoint) == "RPI-RP2":
                 print(f"{Fore.GREEN}FOUND DRIVE {part.device} AS {get_volume_label(part.mountpoint)}{Style.RESET_ALL}")
-                sleep(2)
+                time.sleep(2)
                 driveCheckPassed = True
                 break
         if driveCheckPassed:
@@ -98,7 +99,7 @@ def main():
             continue
 
     # CONVERSION
-    maxConvAmt = 10
+    maxConvAmt = 6
     def convertRem(a:int):
         cls()
         print(f"{Fore.CYAN}Converting. Please wait.\n[{str(a)}/{str(maxConvAmt)}]{Style.RESET_ALL}")
@@ -111,30 +112,22 @@ def main():
         "4": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico2_w-en_US-9.2.1.uf2",
     }
     shutil.copy(f"{files_to_copy[modelSelection]}",f"{selectedDriveLabel}:\\")
-    sleep(9)
+    time.sleep(10)
     convertRem(1)
-    shutil.copytree(f"dependancies\\final\\lib\\", f"{selectedDriveLabel}:\\")
+    shutil.copytree(f"dependancies\\final\\lib", f"{selectedDriveLabel}:\\lib")
     convertRem(2)
-    os.makedirs(f"{selectedDriveLabel}:\\lib\\adafruit_hid ", exist_ok=True)
-    convertRem(3)
-    os.makedirs(f"{selectedDriveLabel}:\\lib\\asyncio", exist_ok=True)
-    convertRem(4)
-    shutil.copytree("dependancies\\final\\lib\\adafruit_hid", f"{selectedDriveLabel}:\\lib\\adafruit_hid")
-    convertRem(5)
-    shutil.copytree(f"dependancies\\final\\lib\\asyncio", f"{selectedDriveLabel}:\lib\\asyncio")
-    convertRem(6)
     shutil.copy(f"dependancies\\final\\boot.py", f"{selectedDriveLabel}:\\")
-    convertRem(7)
+    convertRem(3)
     shutil.copy(f"dependancies\\final\\code.py", f"{selectedDriveLabel}:\\")
-    convertRem(8)
+    convertRem(4)
     shutil.copy(f"dependancies\\final\\duckyinpython.py", f"{selectedDriveLabel}:\\")
-    convertRem(9)
+    convertRem(5)
     shutil.copy(f"dependancies\\final\\payload.dd", f"{selectedDriveLabel}:\\")
 
     # FINISH
     cls()
     print(f"{Fore.GREEN}Conversion finished!\n[{str(maxConvAmt)}/{str(maxConvAmt)}]\n{Style.RESET_ALL}")
-    sleep(1)
+    time.sleep(1)
     print(f"{Fore.CYAN}Additional notes:{Style.RESET_ALL}")
     print(f"- Refer to {Fore.YELLOW}https://github.com/dbisu/pico-ducky/tree/main?tab=readme-ov-file{Style.RESET_ALL} for additional info on how to use your new PicoDucky.")
     print(f"- Refer to {Fore.YELLOW}https://docs.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference{Style.RESET_ALL} for additional info on how to edit your payload.")
