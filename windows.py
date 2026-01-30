@@ -107,10 +107,10 @@ def main():
     try:
         convertRem(0)
         files_to_copy = {
-            "1": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico-en_US-9.2.1.uf2",
-            "2": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico_w-en_US-9.2.1.uf2",
-            "3": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico2-en_US-9.2.1.uf2",
-            "4": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico2_w-en_US-9.2.1.uf2",
+            "1": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico-en_US-10.0.3.uf2",
+            "2": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico_w-en_US-10.0.3.uf2",
+            "3": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico2-en_US-10.0.3.uf2",
+            "4": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico2_w-en_US-10.0.3.uf2",
         }
         shutil.copy(f"{files_to_copy[modelSelection]}",f"{selectedDriveLabel}:\\")
         time.sleep(10)
