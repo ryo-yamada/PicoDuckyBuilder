@@ -104,25 +104,32 @@ def main():
         cls()
         print(f"{Fore.CYAN}Converting. Please wait.\n[{str(a)}/{str(maxConvAmt)}]{Style.RESET_ALL}")
 
-    convertRem(0)
-    files_to_copy = {
-        "1": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico-en_US-9.2.1.uf2",
-        "2": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico_w-en_US-9.2.1.uf2",
-        "3": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico2-en_US-9.2.1.uf2",
-        "4": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico2_w-en_US-9.2.1.uf2",
-    }
-    shutil.copy(f"{files_to_copy[modelSelection]}",f"{selectedDriveLabel}:\\")
-    time.sleep(10)
-    convertRem(1)
-    shutil.copytree(f"dependancies\\final\\lib", f"{selectedDriveLabel}:\\lib")
-    convertRem(2)
-    shutil.copy(f"dependancies\\final\\boot.py", f"{selectedDriveLabel}:\\")
-    convertRem(3)
-    shutil.copy(f"dependancies\\final\\code.py", f"{selectedDriveLabel}:\\")
-    convertRem(4)
-    shutil.copy(f"dependancies\\final\\duckyinpython.py", f"{selectedDriveLabel}:\\")
-    convertRem(5)
-    shutil.copy(f"dependancies\\final\\payload.dd", f"{selectedDriveLabel}:\\")
+    try:
+        convertRem(0)
+        files_to_copy = {
+            "1": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico-en_US-9.2.1.uf2",
+            "2": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico_w-en_US-9.2.1.uf2",
+            "3": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico2-en_US-9.2.1.uf2",
+            "4": "dependancies\\process\\adafruit-circuitpython-raspberry_pi_pico2_w-en_US-9.2.1.uf2",
+        }
+        shutil.copy(f"{files_to_copy[modelSelection]}",f"{selectedDriveLabel}:\\")
+        time.sleep(10)
+        convertRem(1)
+        shutil.copytree(f"dependancies\\final\\lib", f"{selectedDriveLabel}:\\lib", dirs_exist_ok=True)
+        convertRem(2)
+        shutil.copy(f"dependancies\\final\\boot.py", f"{selectedDriveLabel}:\\")
+        convertRem(3)
+        shutil.copy(f"dependancies\\final\\code.py", f"{selectedDriveLabel}:\\")
+        convertRem(4)
+        shutil.copy(f"dependancies\\final\\duckyinpython.py", f"{selectedDriveLabel}:\\")
+        convertRem(5)
+        shutil.copy(f"dependancies\\final\\payload.dd", f"{selectedDriveLabel}:\\")
+    except Exception as e:
+        cls()
+        print(f"{Fore.RED}Error during conversion: {str(e)}{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}This might happen if files already exist or the drive is not accessible.{Style.RESET_ALL}")
+        input("\nPress [ENTER] to exit.")
+        sys.exit(1)
 
     # FINISH
     cls()
