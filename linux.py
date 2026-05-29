@@ -61,10 +61,10 @@ def main():
                 driveCheckPassed = True
                 convertRem(0)
                 files_to_copy = {
-                    "1": "dependancies/process/adafruit-circuitpython-raspberry_pi_pico-en_US-10.0.3.uf2",
-                    "2": "dependancies/process/adafruit-circuitpython-raspberry_pi_pico_w-en_US-10.0.3.uf2",
-                    "3": "dependancies/process/adafruit-circuitpython-raspberry_pi_pico2-en_US-10.0.3.uf2",
-                    "4": "dependancies/process/adafruit-circuitpython-raspberry_pi_pico2_w-en_US-10.0.3.uf2"
+                    "1": "dependencies/process/adafruit-circuitpython-raspberry_pi_pico-en_US-10.0.3.uf2",
+                    "2": "dependencies/process/adafruit-circuitpython-raspberry_pi_pico_w-en_US-10.0.3.uf2",
+                    "3": "dependencies/process/adafruit-circuitpython-raspberry_pi_pico2-en_US-10.0.3.uf2",
+                    "4": "dependencies/process/adafruit-circuitpython-raspberry_pi_pico2_w-en_US-10.0.3.uf2"
                 }
                 os.system(f"cp {files_to_copy[modelSelection]} {part.mountpoint}")
                 sleep(20)
@@ -90,16 +90,16 @@ def main():
                 driveCheckPassed = True
                 sleep(2)
                 convertRem(1)
-                os.system(f"cp -r dependancies/final/lib/ {part.mountpoint}")
+                os.system(f"cp -r dependencies/final/lib/ {part.mountpoint}")
                 convertRem(2)
                 sleep(2)
-                os.system(f"cp dependancies/final/boot.py {part.mountpoint}")
+                os.system(f"cp dependencies/final/boot.py {part.mountpoint}")
                 convertRem(3)
-                os.system(f"cp dependancies/final/code.py {part.mountpoint}")
+                os.system(f"cp dependencies/final/code.py {part.mountpoint}")
                 convertRem(4)
-                os.system(f"cp dependancies/final/duckyinpython.py {part.mountpoint}")
+                os.system(f"cp dependencies/final/duckyinpython.py {part.mountpoint}")
                 convertRem(5)
-                os.system(f"cp dependancies/final/payload.dd {part.mountpoint}")
+                os.system(f"cp dependencies/final/payload.dd {part.mountpoint}")
                 break
         if driveCheckPassed:
             break
