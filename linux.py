@@ -110,8 +110,8 @@ def main():
     print(Fore.GREEN + "Conversion finished!\n[6/6]\n" + Style.RESET_ALL)
     sleep(1)
     print(Fore.CYAN + "Additional notes:" + Style.RESET_ALL)
-    print(f"- Refer to {Fore.YELLOW}https://github.com/dbisu/pico-ducky/tree/main?tab=readme-ov-file{Style.RESET_ALL} for additional info on how to use your new PicoDucky.")
-    print(f"- Refer to {Fore.YELLOW}https://docs.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference{Style.RESET_ALL} for additional info on how to edit your payload.")
+    print(f"- Refer to {Fore.YELLOW}https://github.com/dbisu/pico-ducky{Style.RESET_ALL} for additional info on how to use your new PicoDucky.")
+    print(f"- Refer to {Fore.YELLOW}https://docs.hak5.org/hak5-usb-rubber-ducky/duckyscript-quick-reference{Style.RESET_ALL} for additional info on how to edit your payload.")
 
     print(f"\nCREDIT TO {Fore.LIGHTMAGENTA_EX}@dbisu{Style.RESET_ALL} ON GITHUB FOR MAINTAINING THE MAIN REPOSITORY FOR THE INSTALLATION!")
     print(f"CREDIT TO {Fore.LIGHTMAGENTA_EX}@steveiliop56{Style.RESET_ALL} ON GITHUB FOR INSPIRING ME TO MAKE THIS TOOL!")
