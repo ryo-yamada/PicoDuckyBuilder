@@ -99,10 +99,9 @@ def main():
             continue
 
     # CONVERSION
-    maxConvAmt = 6
     def convertRem(a:int):
         cls()
-        print(f"{Fore.CYAN}Converting. Please wait.\n[{str(a)}/{str(maxConvAmt)}]{Style.RESET_ALL}")
+        print(f"{Fore.CYAN}Converting. Please wait.\n[{str(a)}/7]{Style.RESET_ALL}")
 
     try:
         convertRem(0)
@@ -123,6 +122,8 @@ def main():
         convertRem(4)
         shutil.copy(f"dependencies\\final\\duckyinpython.py", f"{selectedDriveLabel}:\\")
         convertRem(5)
+        shutil.copy(f"dependencies\\final\\pins.py", f"{selectedDriveLabel}:\\")
+        convertRem(6)
         shutil.copy(f"dependencies\\final\\payload.dd", f"{selectedDriveLabel}:\\")
     except Exception as e:
         cls()
@@ -133,7 +134,7 @@ def main():
 
     # FINISH
     cls()
-    print(f"{Fore.GREEN}Conversion finished!\n[{str(maxConvAmt)}/{str(maxConvAmt)}]\n{Style.RESET_ALL}")
+    print(f"{Fore.GREEN}Conversion finished!\n[7/7]\n{Style.RESET_ALL}")
     time.sleep(1)
     print(f"{Fore.CYAN}Additional notes:{Style.RESET_ALL}")
     print(f"- Refer to {Fore.YELLOW}https://github.com/dbisu/pico-ducky{Style.RESET_ALL} for additional info on how to use your new PicoDucky.")

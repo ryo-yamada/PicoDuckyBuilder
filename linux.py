@@ -39,7 +39,7 @@ def main():
 
     def convertRem(a:int):
         clr()
-        print(Fore.CYAN + f"Converting. Please wait.\n[{str(a)}/6]" + Style.RESET_ALL)
+        print(Fore.CYAN + f"Converting. Please wait.\n[{str(a)}/7]" + Style.RESET_ALL)
 
     # DRIVE SELECTION
     while True:
@@ -99,6 +99,8 @@ def main():
                 convertRem(4)
                 os.system(f"cp dependencies/final/duckyinpython.py {part.mountpoint}")
                 convertRem(5)
+                os.system(f"cp dependencies/final/pins.py {part.mountpoint}")
+                convertRem(6)
                 os.system(f"cp dependencies/final/payload.dd {part.mountpoint}")
                 break
         if driveCheckPassed:
@@ -107,7 +109,7 @@ def main():
 
     # FINISH
     clr()
-    print(Fore.GREEN + "Conversion finished!\n[6/6]\n" + Style.RESET_ALL)
+    print(Fore.GREEN + "Conversion finished!\n[7/7]\n" + Style.RESET_ALL)
     sleep(1)
     print(Fore.CYAN + "Additional notes:" + Style.RESET_ALL)
     print(f"- Refer to {Fore.YELLOW}https://github.com/dbisu/pico-ducky{Style.RESET_ALL} for additional info on how to use your new PicoDucky.")
