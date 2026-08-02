@@ -14,7 +14,7 @@ A tool to automate the process of converting a Raspberry Pi Pico into a USB Rubb
 
 ## Post install
 - Refer to [dbisu/pico-ducky -> README.md](https://github.com/dbisu/pico-ducky) for additional info on how to use your new PicoDucky.
-- Refer to [hak5 DuckyScript documentation](https://docs.hak5.org/hak5-usb-rubber-ducky/duckyscript-quick-reference/) for additional info on how to edit your payload.
+- Refer to [hak5 DuckyScript documentation](https://documentation.hak5.org/hak5-usb-rubber-ducky/duckyscript-tm-quick-reference) for additional info on how to edit your payload.
 
 ## Notice
 I advise that you do not use this for malicious purposes. I am not responsible/liable for any legal trouble you may face from this.
